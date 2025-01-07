@@ -1,9 +1,8 @@
-import books_data from "../data/data.js";
 import createBookTemplate from "./book.js";
 
-const createListTemplate = () => `
+const createListTemplate = books => `
 <ul>
-    ${books_data.map(book => createBookTemplate(book)).join('')}
+    ${books.map(book => createBookTemplate(book)).join('')}
 </ul>
 `;
 
