@@ -1,6 +1,6 @@
 const createBookTemplate = book => `
 <li data-id="${book.id}">
-    <div class="details">
+    <div class="details" hx-get="/books/edit/${book.id}" hx-target="closest li">
         <h3>
             ${book.title}
         </h3>

@@ -3,6 +3,7 @@ import createHomeTemplate from "./views/index.js";
 import createListTemplate from "./views/list.js";
 import books_data from "./data/data.js";
 import createBookTemplate from "./views/book.js";
+import createEditTemplate from "./views/edit.js";
 
 // create app
 const app = express();
@@ -39,6 +40,20 @@ app.delete('/books/:id', (req, res) => {
     books_data.splice(idx, 1);
     res.send();
 });
+
+app.get('/books/edit/:id', (req, res) => {
+    const book = books_data.find(book => book.id === req.params.id);
+    res.send(createEditTemplate(book));
+});
+
+app.put('/books/:id', (req, res) => {
+    const {title, author} = req.body;
+    const {id} = req.params;
+    const newBook = {title, author, id};
+    const idx = books_data.findIndex(book => book.id === id);
+    books_data[idx] = newBook;
+    res.send(createBookTemplate(newBook));
+})
 
 // listen to port
 app.listen(3000, () => {
