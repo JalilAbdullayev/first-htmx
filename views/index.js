@@ -15,7 +15,11 @@ const createHomeTemplate = () => `
     My Reading List
 </header>
 <main>
-    <div class="book-list"></div>
+    <div class="book-list">
+        <button hx-get="/books">
+            Show Books
+        </button>
+    </div>
     <div class="add-book-form">
         <h2>
             What do you want to read?
