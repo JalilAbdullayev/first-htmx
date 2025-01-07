@@ -24,6 +24,13 @@ const createHomeTemplate = () => `
         <h2>
             What do you want to read?
         </h2>
+        <form>
+            <input type="text" name="title" placeholder="Title"/>
+            <input type="text" name="author" placeholder="Author"/>
+            <button hx-post="/books" hx-target=".book-list ul" hx-swap="beforeend">
+                Add Book
+            </button>
+        </form>
     </div>
 </main>
 <script src="https://unpkg.com/htmx.org@2.0.4"
