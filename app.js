@@ -24,7 +24,13 @@ app.post('/books', (req, res) => {
     const {title, author} = req.body;
     const id = Math.random().toString();
     books_data.push({id, title, author});
-    res.send(createBookTemplate({id, title, author}));
+    res.redirect(`/books/${id}`);
+});
+
+app.get('/books/:id', (req, res) => {
+    const {id} = req.params;
+    const book = books_data.find(book => book.id === id);
+    res.send(createBookTemplate(book));
 });
 
 // listen to port
