@@ -16,7 +16,7 @@ const createHomeTemplate = () => `
 </header>
 <main>
     <div class="book-list">
-        <button hx-get="/books">
+        <button hx-get="/books" hx-target=".book-list">
             Show Books
         </button>
     </div>
