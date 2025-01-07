@@ -24,12 +24,11 @@ const createHomeTemplate = () => `
         <h2>
             What do you want to read?
         </h2>
-        <form>
-            <input type="text" name="title" placeholder="Title"/>
-            <input type="text" name="author" placeholder="Author"/>
-            <button hx-on::after-request="document.querySelector('form').reset()"
-            hx-on:click="console.log('new book added', event)" hx-post="/books" hx-target=".book-list ul"
-            hx-swap="beforeend">
+        <form hx-post="/books" hx-on::after-request="document.querySelector('form').reset()" hx-target=".book-list ul"
+        hx-swap="beforeend">
+            <input type="text" name="title" placeholder="Title" required/>
+            <input type="text" name="author" placeholder="Author" required/>
+            <button>
                 Add Book
             </button>
         </form>
