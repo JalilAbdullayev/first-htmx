@@ -7,7 +7,7 @@ const createBookTemplate = book => `
         <p>
             ${book.author}
         </p>
-        <button>
+        <button hx-delete="/books/${book.id}" hx-target="closest li" hx-swap="outerHTML">
             Delete
         </button>
     </div>
