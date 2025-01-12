@@ -16,7 +16,9 @@ router.post('/articles', (req, res) => {
     const {name, body} = req.body;
     const article = {id: Math.floor(Math.random() * 1000000), name, body}
     articles.push(article);
-    res.render('partials/list', {articles: articles})
+    setTimeout(() => {
+        res.render('partials/list', {articles: articles});
+    }, 3000);
 });
 
 export default router;
