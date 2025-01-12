@@ -12,4 +12,11 @@ router.get('/articles/:id', (req, res) => {
     res.render('article', {title: article.name, article: article});
 });
 
+router.post('/articles', (req, res) => {
+    const {name, body} = req.body;
+    const article = {id: Math.floor(Math.random() * 1000000), name, body}
+    articles.push(article);
+    res.render('partials/list', {articles: articles})
+});
+
 export default router;

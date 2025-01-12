@@ -86,7 +86,7 @@ form * {
     border-radius: 5px;
     border: 1px solid #DDD;
     box-sizing: border-box;
-    font-family: Rubik;
+    font-family: Rubik, sans-serif;
 }
 
 form textarea {
